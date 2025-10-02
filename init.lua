@@ -353,6 +353,7 @@ require('lazy').setup({
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>v', group = '[V]iew' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
@@ -541,6 +542,15 @@ require('lazy').setup({
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
+
+          -- Show documentation or type info
+          map('K', vim.lsp.buf.hover, 'Show documentation')
+
+          -- View signature help while in insert mode
+          map('<C-h>', vim.lsp.buf.signature_help, 'View Signature help', 'i')
+
+          -- Show documentation or type info
+          map('<leader>vd', vim.diagnostic.open_float, '[V]iew [D]iagnostics')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -880,12 +890,7 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = {
-        enabled = true,
-        window = {
-          show_documentation = true,
-        },
-      },
+      signature = { enabled = false },
     },
   },
 
