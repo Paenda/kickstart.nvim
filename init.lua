@@ -549,7 +549,7 @@ require('lazy').setup({
           -- View signature help while in insert mode
           map('<C-h>', vim.lsp.buf.signature_help, 'View Signature help', 'i')
 
-          -- Show documentation or type info
+          -- View diagnostics (useful if error is long)
           map('<leader>vd', vim.diagnostic.open_float, '[V]iew [D]iagnostics')
 
           -- Rename the variable under your cursor.
