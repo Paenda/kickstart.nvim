@@ -5,4 +5,7 @@ return {
   build = function()
     vim.fn['mkdp#util#install']()
   end,
+  config = function()
+    vim.keymap.set('n', '<leader>tm', vim.cmd.MarkdownPreviewToggle, { desc = '[T]oggle [M]arkdown' })
+  end,
 }
