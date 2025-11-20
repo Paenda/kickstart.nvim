@@ -30,14 +30,6 @@ return { -- Collection of various small independent plugins/modules
       statusline.section_location = function()
         return '%2l:%-2v'
       end
-
-      require('mini.files').setup({
-        windows = {
-        preview = true,
-        width_focus = 30,
-        width_nofocus = 30,
-        },
-      })
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
